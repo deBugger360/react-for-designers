@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
 import './layout.css'
+import Footer from './Footer';
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -15,6 +16,15 @@ const Layout = ({ children }) => (
             title
             description
             keywords
+          }
+        }
+        allContentfulLink(sort: {fields: [createdAt], order: ASC}) {
+          edges {
+            node {
+              title
+              url
+              createdAt
+            }
           }
         }
       }
@@ -32,6 +42,8 @@ const Layout = ({ children }) => (
         </Helmet>
         <Header />
         {children}
+        <Footer data={data}>Backgrounds made in Cinema 4D, IOS app in Swift, site in React. <a href="mailto:support@designcode.io">Email us</a> to ask us anything. &copy; 2018
+        </Footer>
       </>
     )}
   />

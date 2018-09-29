@@ -1,10 +1,34 @@
 import React from 'react'
 import { Link } from 'gatsby'
-
 import Layout from '../components/layout'
 import Card from '../components/Card';
 import Section from '../components/Section';
 import Wave from '../components/Wave';
+import Cell from '../components/Cell'
+import staticdata from '../../staticdata.json'
+import styled from 'styled-components';
+
+const sectionCaption = styled.p`
+  font-weight: 600px;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #94a4ba;
+  text-align: center;
+`
+
+const SectionCellGroup = styled.div`
+  max-width: 800px;
+  margin: 0 auto 100px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  padding: 0 20px;
+
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+`
 
 
 const IndexPage = () => (
@@ -23,8 +47,7 @@ const IndexPage = () => (
           <img src={require('../images/logo-swift.png')} width="50" alt="" />
         </div>
        <Wave />
- 
-      </div>
+       </div>
     </div>
     <div className="Cards">
       <h2>11 courses, more coming</h2>
@@ -56,8 +79,17 @@ const IndexPage = () => (
       logo={require('../images/logo-react.png')}
       title="React for Designers"
       text="Learn how to buid a modern site using React and the most efficient libraries to get your site/product online. Get familiar with components, Grid CSS, animations, interactions,dynamic data with Contentful and deploying your site with Netlify."
-    />
+      />
+    <sectionCaption>12 sections - 6 hours</sectionCaption>
+    <SectionCellGroup>
+    {staticdata.cells.map(cell => (
+    <Cell 
+      title={cell.title} 
+      image={cell.image} />
+    ))}
+    </SectionCellGroup>
   </Layout>
-)
+  )
+
 
 export default IndexPage

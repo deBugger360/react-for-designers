@@ -119,7 +119,7 @@ a {
   -webkit-background-clip: text;
   background-clip: text;
   color: #4a54bc;
-  -webkit-text-fill-color: transparent;
+  /* -webkit-text-fill-color: transparent; */
 }
 
 .CardGroup {

@@ -118,6 +118,7 @@ a {
   /* background: linear-gradient(104deg, #050a27 0%, #4a54bc 100%); */
   -webkit-background-clip: text;
   background-clip: text;
+  color: #4a54bc;
   -webkit-text-fill-color: transparent;
 }
 
